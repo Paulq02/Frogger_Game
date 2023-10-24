@@ -22,12 +22,29 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     car.create_car()
-    car.move_car()
+
+
+    
+
+
 
 
     if player.ycor() > 250:
         player.reset()
         car.increase_speed()
+        score.level_up()
+        
+    else:
+        car.move_car()
+
+    for position in car.car_cage:
+        if position.distance(player.position()) < 20:
+            game_is_on = False
+            score.game_over()
+            
+
+
+screen.exitonclick()
     
     
     

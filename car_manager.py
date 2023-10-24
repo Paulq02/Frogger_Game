@@ -13,6 +13,7 @@ class CarManager(Turtle):
     def __init__(self):
         super().__init__()
         self.car_cage = []
+        self.car_speed = STARTING_MOVE_DISTANCE
         self.hideturtle()
         
        
@@ -32,12 +33,11 @@ class CarManager(Turtle):
 
     def move_car(self):
         for move in self.car_cage:
-            move.forward(STARTING_MOVE_DISTANCE)
+            move.forward(self.car_speed)
 
     def increase_speed(self):
-        for move in self.car_cage:
-            move.forward(MOVE_INCREMENT)
-
+        self.car_speed += MOVE_INCREMENT
+        
             
 
 
